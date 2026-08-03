@@ -1,0 +1,9 @@
+---
+- name: Provision Projeto Korp
+  hosts: projeto_korp
+  become: true
+  roles:
+    - docker
+    - app_image
+    - deployment
+    - monitoring_validation

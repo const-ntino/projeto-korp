@@ -1,0 +1,15 @@
+---
+- name: Wait for reverse proxy endpoint
+  ansible.builtin.uri:
+    url: "{{ service_url }}"
+    method: GET
+    status_code: 200
+    return_content: true
+  register: projeto_korp_response
+  retries: 12
+  delay: 5
+  until: projeto_korp_response.status == 200
+
+- name: Show service response
+  ansible.builtin.debug:
+    msg: "{{ projeto_korp_response.content }}"

@@ -1,0 +1,6 @@
+---
+app_dir: /opt/projeto-korp
+docker_network: projeto-korp-net
+app_image: http-server-projeto-korp
+compose_project_name: projeto-korp
+service_url: http://localhost:80/projeto-korp

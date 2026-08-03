@@ -1,0 +1,14 @@
+---
+- name: Create Docker bridge network
+  community.docker.docker_network:
+    name: "{{ docker_network }}"
+    driver: bridge
+    state: present
+
+- name: Start Compose stack
+  community.docker.docker_compose_v2:
+    project_src: "{{ app_dir }}"
+    project_name: "{{ compose_project_name }}"
+    state: present
+    build: never
+    pull: missing
