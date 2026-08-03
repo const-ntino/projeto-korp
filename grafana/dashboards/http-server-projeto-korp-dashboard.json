@@ -1,0 +1,21 @@
+{
+  "title": "HTTP Server Projeto Korp",
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Disponibilidade",
+      "targets": [{"expr": "http_server_projeto_korp_up"}],
+      "gridPos": {"h": 8, "w": 8, "x": 0, "y": 0}
+    },
+    {
+      "type": "timeseries",
+      "title": "Volume de requisições por método e status",
+      "targets": [{"expr": "sum by (method, status_code) (increase(http_server_projeto_korp_requests_total[1m]))"}],
+      "gridPos": {"h": 8, "w": 16, "x": 8, "y": 0}
+    }
+  ]
+}
